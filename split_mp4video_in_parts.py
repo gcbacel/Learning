@@ -14,8 +14,9 @@ def split_video(video_file, *args, last_block = False):
         video_size = VideoFileClip(full_video).duration
         video_splits.append(video_size)
     for i in range(1, len(video_splits)):
+        print(f"Starting to process {len(video_splits)-1} video(s)")
         print(f"Processing video part #{i}")
         clip = VideoFileClip(video_file).subclip(video_splits[i-1], video_splits[i])
         clip.write_videofile(f"video_part{i}.mp4", codec="libx264", temp_audiofile='tempaudio.m4a',
                              remove_temp=True, audio_codec='aac', logger=None)
-    print(f"All {len(video_splits)-1} videos were created")
+    print(f"All {len(video_splits)-1} video(s) were created sucessfully")
