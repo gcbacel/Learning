@@ -42,11 +42,12 @@ class DB:
                 else: 
                     return cursor.fetchall()
 
-# Examples using Python to run SQL requires in a database
+# Examples using Python to run SQL queries in a database
 DB_HOST='<enter here the host connection to mysql>'
 DB_USER='<enter here your user>'
 DB_PASS='<enter here your password>'
 DB_NAME='<enter here your database name>'
+# create the connection with database
 db = DB(host=DB_HOST, user=DB_USER, password=DB_PASS, db=DB_NAME)
 db.query('CREATE DATABASE MWdb')   # create database mydb
 db.query("CREATE TABLE mydb.customers (id INT NOT NULL, hero VARCHAR(50), name VARCHAR(50), city VARCHAR(50), age INT, PRIMARY KEY (id))") # create a table
