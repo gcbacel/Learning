@@ -51,11 +51,11 @@ DB_NAME='<enter here your database name>'
 db = DB(host=DB_HOST, user=DB_USER, password=DB_PASS, db=DB_NAME)
 db.query('CREATE DATABASE MWdb')   # create database mydb
 db.query("CREATE TABLE mydb.customers (id INT NOT NULL, name VARCHAR(50), city VARCHAR(50), age INT, PRIMARY KEY (id))") # create a table
-db.query("INSERT INTO mydb(id, name, city, age) VALUES (1, 'Ana', 'Fortaleza', 56)")  # insert a new row
-db.query("SELECT MAX(id) AS Max_Id FROM customers") # find the max id of table customers
+db.query("INSERT INTO mydb.customers (id, name, city, age) VALUES (1, 'Ana', 'Fortaleza', 56)")  # insert a new row
+db.query("SELECT MAX(id) AS Max_Id FROM mydb.customers") # find the max id of table customers
 id = 1
-db.query("SELECT id, hero, power, name, xp, color FROM heros WHERE id=%s", (id,))  # select row with id = 1
-db.query("DELETE FROM customers WHERE id>25")  # delete rows of table customers
+db.query("SELECT id, hero, power, name, xp, color FROM mydb.customers WHERE id=%s", (id,))  # select row with id = 1
+db.query("DELETE FROM mydb.customers WHERE id>25")  # delete rows of table customers
 db.query("DROP TABLE mydb.customers"  # drop the table customers in the database mydb
 
 # how to create a connection to cache database Redis
