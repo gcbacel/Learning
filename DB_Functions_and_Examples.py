@@ -59,9 +59,10 @@ db.query("DELETE FROM customers WHERE id>25")  # delete rows of table customers
 db.query("DROP TABLE mydb.customers"  # drop the table customers in the database mydb
 
 # how to create a connection to cache database Redis
+import redis
 TTL = 10 # Time to live for cached data
 Cache = redis.StrictRedis(host=<your host link>,
-        port=6380, db=0, password=<your password>, ssl=True)
+        port=6380, db=0, password=<your password>, ssl=True) # create a redis connection inside Azure serverless function
 data = {'id':2, 'name':'John', 'city': 'Dallas', age:28}
 Cache.hmset(id, data)  # save data to the cache
 Cache.expire(id, TTL)  # set the time for cache data to experie
