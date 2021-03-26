@@ -42,7 +42,7 @@ class DB:
                 else: 
                     return cursor.fetchall()
 
-# Examples using SQL 
+# Examples using Python to run SQL requires in a database
 DB_HOST='<enter here the host connection to mysql>'
 DB_USER='<enter here your user>'
 DB_PASS='<enter here your password>'
