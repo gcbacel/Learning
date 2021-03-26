@@ -1,8 +1,8 @@
-######################################################################################
-##   Python sample code to split a video in n parts with different durations each   ##
-##   Author: Gunther Bacellar                                                       ##
-##   Email: gcbacel@hotmail.com                                                     ##
-######################################################################################
+#########################################################################################
+##   Python function to split a video in n parts, each part with a different duration  ##
+##   Author: Gunther Bacellar                                                          ##
+##   Email: gcbacel@hotmail.com                                                        ##
+#########################################################################################
 
 from moviepy.editor import VideoFileClip
 
