@@ -50,10 +50,19 @@ DB_NAME='<enter here your database name>'
 # create the connection with database
 db = DB(host=DB_HOST, user=DB_USER, password=DB_PASS, db=DB_NAME)
 db.query('CREATE DATABASE MWdb')   # create database mydb
-db.query("CREATE TABLE mydb.customers (id INT NOT NULL, hero VARCHAR(50), name VARCHAR(50), city VARCHAR(50), age INT, PRIMARY KEY (id))") # create a table
+db.query("CREATE TABLE mydb.customers (id INT NOT NULL, name VARCHAR(50), city VARCHAR(50), age INT, PRIMARY KEY (id))") # create a table
 db.query("INSERT INTO mydb(id, name, city, age) VALUES (1, 'Ana', 'Fortaleza', 56)")  # insert a new row
 db.query("SELECT MAX(id) AS Max_Id FROM customers") # find the max id of table customers
 id = 1
 db.query("SELECT id, hero, power, name, xp, color FROM heros WHERE id=%s", (id,))  # select row with id = 1
 db.query("DELETE FROM customers WHERE id>25")  # delete rows of table customers
 db.query("DROP TABLE mydb.customers"  # drop the table customers in the database mydb
+
+# how to create a connection to cache database Redis
+TTL = 10 # Time to live for cached data
+Cache = redis.StrictRedis(host='<your host link>',
+        port=6380, db=0, password='<your password', ssl=True)
+data = {'id':2, 'name':'John', 'city': 'Dallas', age:28}
+Cache.hmset(id, data)  # save data to the cache
+Cache.expire(id, TTL)  # set the time for the data to experie in cache
+Cache.hgetall(id)   # access data from the cache
