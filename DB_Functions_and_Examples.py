@@ -4,11 +4,11 @@
 ##   Email: gcbacel@hotmail.com                                                  ##
 ###################################################################################
 
-from sqlalchemy import create_engine
-import mysql.connector as msql
+from sqlalchemy import create_engine   # Python Package: sqlalchemy
+import mysql.connector as msql         # Python Package: mysql-connector-python
 
 # code 1: Function to migrate a dataframe to a database using sqlalchemy and mysql libraries
-def migrate_df_to_db(DATA_FRAME, DB_TABLE, ACTION, DB_HOST, DB_NAME, DB_USER, DB_PASS, DB_DRIVER = 'mysql+pymysql'):
+def migrate_df_to_db(DATA_FRAME, DB_TABLE, DB_HOST, DB_NAME, DB_USER, DB_PASS, ACTION = 'replace', DB_DRIVER = 'mysql+pymysql'):
     # url format: dialect[+driver]://user:password@host/dbname[?key=value..]
     # dialect is a database name such as 'mysql', 'oracle', 'postgresql' and driver is the name of a DBAPI, such as 'pymysql', 'psycopg2', 'pyodbc', 'cx_oracle'
     # DB_HOST, DB_NAME, DB_USER, DB_PASS: Database host, name, user and password
@@ -68,3 +68,6 @@ Cache.hmset(id, data)  # save data to the cache
 Cache.expire(id, TTL)  # set the time for cache data to experie
 Cache.hgetall(id)   # access data from the cache
 Cache = redis.Redis.from_url(<your host link>) # create a redis connection inside a aws lambada serverless function
+pipe = Cache.pipeline()
+# set all Cache.set()
+pipe.execute()
