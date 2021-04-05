@@ -5,7 +5,7 @@
 ############################################################################
 
 # Steps to run the script:
-# 1) install PyPDF2 (python3 -m pip install PyPDF3)
+# 1) install PyPDF3 (python3 -m pip install PyPDF3)
 # 2) verify instalation: python3 -m pip show PyPDF3
 
 from PyPDF3 import PdfFileWriter, PdfFileReader
