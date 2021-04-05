@@ -10,7 +10,8 @@
 
 import pdfkit
 url = "http://www.google.com"
+url = "https://www.seattletimes.com/seattle-news/politics/legislature-passes-bill-that-will-close-northwest-detention-center-in-tacoma/"
 path = r"C:\Program Files\wkhtmltopdf\bin\wkhtmltopdf.exe"
 config = pdfkit.configuration(wkhtmltopdf = path)
-pdfkit.from_url(url, "out.pdf", configuration = config)
-print(f"pdf successfully created for {url}")
+pdfkit.from_url(url, "c:\gunther\seattle.pdf", configuration = config)
+print(f"pdf successfully created")
