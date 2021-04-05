@@ -1,8 +1,8 @@
-#######################################################
-##   Python sample code to handle pdf files          ##
-##   Author: Gunther Bacellar                        ##
-##   Email: gcbacel@hotmail.com                      ##
-#######################################################
+############################################################################
+##   Python sample code to create a new pdf file with different formats   ##
+##   Author: Gunther Bacellar                                             ##
+##   Email: gcbacel@hotmail.com                                           ##
+############################################################################
 
 # Steps to run the script:
 # 1) install PyPDF2 (python3 -m pip install PyPDF3)
